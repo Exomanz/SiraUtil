@@ -8,12 +8,13 @@ namespace SiraUtil.Sabers.Effects
 {
     internal class SiraSaberClashChecker : SaberClashChecker
     {
+#pragma warning disable
         private Saber? _lastSaberA;
         private Saber? _lastSaberB;
         private bool _extraSabersDetected;
         private readonly HashSet<Saber> _sabers = new();
         public event Action<Saber, Saber>? NewSabersClashed;
-
+#pragma warning restore
         protected readonly DiContainer _container;
         protected readonly SaberManager _saberManager;
         protected readonly SiraSaberFactory _siraSaberFactory;
@@ -39,7 +40,7 @@ namespace SiraUtil.Sabers.Effects
             _siraSaberFactory.SaberCreated -= SiraSaberFactory_SaberCreated;
         }
 
-        /// <summary>
+        /*/// <summary>
         /// Checks if any of the registered sabers are clashing.
         /// </summary>
         /// <param name="clashingPoint">The point that the sabers are clashing at.</param>
@@ -102,6 +103,6 @@ namespace SiraUtil.Sabers.Effects
             }
             clashingPoint = _clashingPoint;
             return _sabersAreClashing;
-        }
+        }*/
     }
 }

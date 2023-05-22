@@ -24,7 +24,6 @@ namespace SiraUtil.Tools.FPFC
         private readonly MainCamera _mainCamera;
         private readonly EventSystem _eventSystem;
         private readonly IFPFCSettings _fpfcSettings;
-        private readonly VRInputModule _vrInputModule;
         private readonly List<IFPFCListener> _fpfcListeners;
         private readonly IMenuControllerAccessor _menuControllerAccessor;
         private readonly Transform _previousEventSystemTransformParent;
@@ -34,7 +33,6 @@ namespace SiraUtil.Tools.FPFC
         {
             _mainCamera = mainCamera;
             _fpfcSettings = fpfcSettings;
-            _vrInputModule = vrInputModule;
             _fpfcListeners = fpfcListeners;
             _menuControllerAccessor = menuControllerAccessor;
 
@@ -119,9 +117,6 @@ namespace SiraUtil.Tools.FPFC
                 _menuControllerAccessor.RightController.enabled = false;
             }
 
-            if (_vrInputModule != null)
-                _vrInputModule.useMouseForPressInput = true;
-
             if (_didFirstFocus)
             {
                 Cursor.lockState = CursorLockMode.Locked;
@@ -144,9 +139,6 @@ namespace SiraUtil.Tools.FPFC
                 _menuControllerAccessor.LeftController.enabled = true;
                 _menuControllerAccessor.RightController.enabled = true;
             }
-
-            if (_vrInputModule != null)
-                _vrInputModule.useMouseForPressInput = false;
 
             _simpleCameraController.AllowInput = false;
 
